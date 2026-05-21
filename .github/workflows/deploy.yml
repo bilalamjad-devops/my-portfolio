@@ -1,0 +1,28 @@
+name: Deploy Website to AWS S3 and CloudFront
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Checkout (download) your repository code onto the GitHub runner
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    # 2. Configure the AWS CLI using your stored GitHub repository secrets
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ap-south-1 # Change this if your S3 bucket is in a different region
+
+    # 3. Automatically sync and upload HTML files from GitHub to the target S3 bucket
+    - name: Deploy to S3
+      run: |
+        aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET_NAME }} --exclude ".git*" --exclude ".github*"
