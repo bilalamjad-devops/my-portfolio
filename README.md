@@ -158,6 +158,16 @@ my-devops-portfolio-xyz
 
 Keep the remaining settings as default and create the bucket.
 
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 12" src="https://github.com/user-attachments/assets/70594dbe-6db7-49c9-b5d5-0a1ed3fc0640" />
+
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 14" src="https://github.com/user-attachments/assets/0898926b-3063-449e-a069-402ff66be03f" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 16" src="https://github.com/user-attachments/assets/4d71b4df-43e6-43c1-ad50-40ec66a8c2d9" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 17" src="https://github.com/user-attachments/assets/e26dd573-a3ac-4ba1-b7c0-0d7bf817f7f4" />
+
 ---
 
 #### Create CloudFront Distribution
