@@ -516,6 +516,10 @@ Example:
 E1ABCXYZ12345
 ```
 
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 74b" src="https://github.com/user-attachments/assets/80f78c79-8a9f-42ac-9b59-1c25b2ac98a5" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 75" src="https://github.com/user-attachments/assets/8de90ec1-483e-48b4-a011-45b3ddfc5246" />
+
 ---
 
 ## Step 9 — Update deploy.yml
