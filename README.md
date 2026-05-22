@@ -351,6 +351,18 @@ git push origin main
 
 GitHub Actions pipeline will automatically start.
 
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 53" src="https://github.com/user-attachments/assets/7e892eb2-d391-4207-a333-d398aebf517e" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 54" src="https://github.com/user-attachments/assets/7f28f585-e0ae-4744-a460-731968eb6b27" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 55" src="https://github.com/user-attachments/assets/5c4a45c7-3cd8-4d1e-a4b5-0c93a259e327" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 56" src="https://github.com/user-attachments/assets/9cf93bda-7039-4f33-a5fd-28273e79345d" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 57" src="https://github.com/user-attachments/assets/212a03b8-33f3-4b53-ae1c-cc9347c5abbd" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 58" src="https://github.com/user-attachments/assets/5f87e73a-006a-4cde-87fb-9b8fa37531be" />
+
 ---
 
 ## Step 6 — Test Website Deployment
