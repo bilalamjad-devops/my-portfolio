@@ -21,7 +21,7 @@ As an enhancement, we can later add:
 
 ---
 
-# Problem Statement
+## Problem Statement
 
 Manually uploading static website files again and again is repetitive and inefficient.
 
@@ -36,15 +36,7 @@ The goal of this project is to automate static website deployment using GitHub A
 
 ---
 
-# Architecture
-
-![Image](https://images.openai.com/static-rsc-4/HQ2WInMafjv30g9ZNzN7Gfzuw9_Z7XEvbcG5Xi1wjH-hct6NypfOZd_iUZhtSZyoBKu1rZuvJagZ4VNadIRHRLZxWyMN0rV9IotVeEuQjZCQgKFfMK51UxROZZkMnGpxqWEZ0o2lSsVGSCIZMkHDXfVi-dSTABl7TgfC93BCC5gk209NzFDaktlGB0Zk1yT2?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/hkpna1ebQZQ9BdGeMuAXnECeHCNHzzAnOXHwPJpT5_E1zCzL1FJQ1lsiJQ3RaBYg9yofboLAX2C_38TmJAwlSU-H_ICZNhCSHLjEx9khMqr1P3aHxeVKF-iE8Wt_GP_EB7TKYk0ajMmCVnA9BneyUt9w7xUDrxeupdoGKL9gql3ZqL5nkh_zKRhgHTuJNbfp?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/aGO0VA9MGTE99db_rdMPowyMhihlbbDX36xSDEyk9NTPFjCogaU9CyyzfgG-31OR2M1v9gh-9LBa_x9nWyIdbEueshhYt6h6WcKZ5dz7CcSit7RdZpV4EBzUTxbFEO2Yz8SABMEpFnbwfrE4T9gH8ixopmtwtUe56XipDqgoVWHrYBG1pgA0MJjuswv0w_hn?purpose=fullsize)
-
-![Image](https://images.openai.com/static-rsc-4/FTe8JYDLfRG1MVcffFY_0yuNDGq7LP4MSSIHBNJ4UhWAc-kyi0duUPI7cpBV6cXkMak50Sei6YS5WNzkhF73Q2oGB4gHk-8XFGnmgNr-xKQB7RVluxjWtRIyXL38A8czM1oJe3awb-4M3iF7mfqu2UF1fZnF1FoqH7C11mtHDt9qumXKldAnuop2sOTxvX2a?purpose=fullsize)
+## Architecture
 
 ```text id="c9xstg"
 Developer
@@ -62,7 +54,7 @@ Users
 
 ---
 
-# What We Will Do
+## What We Will Do
 
 This project will follow these stages:
 
@@ -78,7 +70,7 @@ This project will follow these stages:
 
 ---
 
-# Step 1 — Local Development
+## Step 1 — Local Development
 
 Create a folder on your laptop and open it in Visual Studio Code.
 
