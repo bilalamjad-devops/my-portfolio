@@ -21,7 +21,7 @@ As an enhancement, we can later add:
 
 ---
 
-## Problem Statement
+#### Problem Statement
 
 Manually uploading static website files again and again is repetitive and inefficient.
 
@@ -36,7 +36,7 @@ The goal of this project is to automate static website deployment using GitHub A
 
 ---
 
-## Architecture
+#### Architecture
 
 ```text id="c9xstg"
 Developer
@@ -54,7 +54,7 @@ Users
 
 ---
 
-## What We Will Do
+#### What We Will Do
 
 This project will follow these stages:
 
@@ -70,7 +70,7 @@ This project will follow these stages:
 
 ---
 
-## Step 1 — Local Development
+#### Step 1 — Local Development
 
 Create a folder on your laptop and open it in Visual Studio Code.
 
@@ -102,11 +102,11 @@ At this stage, the website is running locally on your machine.
 
 ---
 
-## Step 2 — Push Code to GitHub Repository
+#### Step 2 — Push Code to GitHub Repository
 
 Create a new repository on:
 
-## [GitHub](https://github.com/?utm_source=chatgpt.com)
+#### [GitHub](https://github.com/?utm_source=chatgpt.com)
 
 Initialize Git and push the project files.
 
@@ -121,13 +121,13 @@ git push -u origin main
 
 ---
 
-# Step 3 — Create S3 Bucket, CloudFront Distribution, and IAM User
+## Step 3 — Create S3 Bucket, CloudFront Distribution, and IAM User
 
-## Create S3 Bucket
+#### Create S3 Bucket
 
 Go to:
 
-## [AWS S3 Console](https://console.aws.amazon.com/s3/?utm_source=chatgpt.com)
+#### [AWS S3 Console](https://console.aws.amazon.com/s3/?utm_source=chatgpt.com)
 
 Create a new bucket.
 
@@ -141,11 +141,11 @@ Keep the remaining settings as default and create the bucket.
 
 ---
 
-## Create CloudFront Distribution
+#### Create CloudFront Distribution
 
 Go to:
 
-## [AWS CloudFront Console](https://console.aws.amazon.com/cloudfront/?utm_source=chatgpt.com)
+#### [AWS CloudFront Console](https://console.aws.amazon.com/cloudfront/?utm_source=chatgpt.com)
 
 Create a CloudFront distribution.
 
@@ -164,11 +164,11 @@ d2wczi5o3bcz7k.cloudfront.net
 
 ---
 
-## Create IAM User
+#### Create IAM User
 
 Go to:
 
-## [AWS IAM Console](https://console.aws.amazon.com/iam/?utm_source=chatgpt.com)
+#### [AWS IAM Console](https://console.aws.amazon.com/iam/?utm_source=chatgpt.com)
 
 Create a new IAM user.
 
@@ -200,7 +200,7 @@ Download and save the credentials file securely.
 
 ---
 
-# Step 4 — Store Secrets in GitHub Repository
+## Step 4 — Store Secrets in GitHub Repository
 
 Open your GitHub repository.
 
@@ -222,7 +222,7 @@ These secrets will be used securely inside GitHub Actions.
 
 ---
 
-# Step 5 — Create GitHub Actions Workflow
+## Step 5 — Create GitHub Actions Workflow
 
 Create the following file:
 
@@ -245,11 +245,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Checkout repository code
+    ## Checkout repository code
     - name: Checkout code
       uses: actions/checkout@v4
 
-    # Configure AWS credentials
+    ## Configure AWS credentials
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
@@ -257,7 +257,7 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ap-south-1
 
-    # Upload files to S3 bucket
+    ## Upload files to S3 bucket
     - name: Deploy to S3
       run: |
         aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET_NAME }} --exclude ".git*" --exclude ".github*"
@@ -279,7 +279,7 @@ GitHub Actions pipeline will automatically start.
 
 ---
 
-# Step 6 — Test Website Deployment
+## Step 6 — Test Website Deployment
 
 Copy your CloudFront distribution domain and paste it into the browser.
 
@@ -297,13 +297,13 @@ Access Denied
 
 ---
 
-# Troubleshooting — Access Denied Error
+## Troubleshooting — Access Denied Error
 
-## What is the issue?
+#### What is the issue?
 
 CloudFront does not know which file should be served as the default page.
 
-## Solution
+#### Solution
 
 Open your CloudFront distribution.
 
@@ -333,7 +333,7 @@ This site is deployed automatically using GitHub Actions.
 
 ---
 
-# Step 7 — Test Automatic Deployment
+## Step 7 — Test Automatic Deployment
 
 Now change the website content inside `index.html`.
 
@@ -359,9 +359,9 @@ However, after refreshing the CloudFront URL, you may still see old content.
 
 ---
 
-# Troubleshooting — Website Changes Are Not Visible
+## Troubleshooting — Website Changes Are Not Visible
 
-## What is the issue?
+#### What is the issue?
 
 CloudFront stores cached copies of files in edge locations worldwide to deliver content faster.
 
@@ -372,13 +372,13 @@ Because of caching:
 
 ---
 
-# Solution — CloudFront Cache Invalidation
+## Solution — CloudFront Cache Invalidation
 
 We need to automatically clear CloudFront cache after every deployment.
 
 ---
 
-# Step 8 — Add CloudFront Distribution ID Secret
+## Step 8 — Add CloudFront Distribution ID Secret
 
 Open your GitHub repository.
 
@@ -406,7 +406,7 @@ E1ABCXYZ12345
 
 ---
 
-# Step 9 — Update deploy.yml
+## Step 9 — Update deploy.yml
 
 Update your workflow file with CloudFront cache invalidation.
 
@@ -426,7 +426,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    # Configure AWS credentials
+    ## Configure AWS credentials
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
@@ -434,12 +434,12 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ap-south-1
 
-    # Upload files to S3
+    ## Upload files to S3
     - name: Deploy to S3
       run: |
         aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET_NAME }} --exclude ".git*" --exclude ".github*"
 
-    # Clear CloudFront cache
+    ## Clear CloudFront cache
     - name: Invalidate CloudFront Cache
       run: |
         aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
@@ -455,7 +455,7 @@ git push origin main
 
 ---
 
-# Final Result
+## Final Result
 
 Now refresh the CloudFront URL.
 
@@ -467,11 +467,11 @@ This makes deployments fully automated and ensures users always receive the late
 
 ---
 
-# Cost Optimization
+## Cost Optimization
 
 This project is designed using mostly serverless AWS services, which helps reduce infrastructure cost.
 
-## Cost-saving decisions
+#### Cost-saving decisions
 
 * Used S3 instead of EC2 hosting
 * Used CloudFront for low-cost CDN delivery
@@ -481,7 +481,7 @@ This project is designed using mostly serverless AWS services, which helps reduc
 
 ---
 
-# Cleanup
+## Cleanup
 
 To avoid unexpected AWS charges, delete the following resources after completing the lab:
 
@@ -493,7 +493,7 @@ To avoid unexpected AWS charges, delete the following resources after completing
 
 ---
 
-# Key Learnings
+## Key Learnings
 
 During this project, I learned:
 
@@ -505,7 +505,7 @@ During this project, I learned:
 
 ---
 
-# Future Enhancements
+## Future Enhancements
 
 This project can be improved further by adding:
 
@@ -518,7 +518,7 @@ This project can be improved further by adding:
 
 ---
 
-# Conclusion
+## Conclusion
 
 This project demonstrates how modern cloud-native static websites can be deployed automatically using AWS and GitHub Actions.
 
