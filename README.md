@@ -189,6 +189,22 @@ CloudFront will generate a distribution domain like:
 d2wczi5o3bcz7k.cloudfront.net
 ```
 
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 20" src="https://github.com/user-attachments/assets/7bc41eac-9a6a-4a05-8e4f-8ec31a2e13a1" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 21" src="https://github.com/user-attachments/assets/21df8e4d-0cd9-4528-8ffc-ae5654af7c31" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 22" src="https://github.com/user-attachments/assets/d3080f67-e09e-4da3-a294-c08fe2cc1174" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 23" src="https://github.com/user-attachments/assets/9ae5f3bd-b02f-44b6-b2cd-a68d2472d13f" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 24" src="https://github.com/user-attachments/assets/0a79e426-a112-4044-9125-0c62e9795d09" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 26" src="https://github.com/user-attachments/assets/6030e967-f626-4709-a2b6-00aec982a99c" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 27" src="https://github.com/user-attachments/assets/a221cab7-6254-4c5b-8c70-0842a86f51e3" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 28" src="https://github.com/user-attachments/assets/8f988c94-cc39-4c09-adc7-6cc4946de635" />
+
 ---
 
 #### Create IAM User
