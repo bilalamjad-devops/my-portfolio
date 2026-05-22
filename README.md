@@ -1,9 +1,13 @@
----
 
-What we want to achieve:
+
+**What we want to achieve**
+
 When developer commits changes, GitHub Actions should be run. It deployes the new code in S3 static website hosting. Cloudfront has to serve the data instantly.
+
 Enhancement: We can add Route53 for domain and ACM for https. 
-What we will do:
+
+**What we will do**
+
 First we run our code locally to see. Then we push our code to GitHub. Then we create S3, Cloudfront, IAM User and attach policyes with him. Then write GitHub Actions file. 
 Steps:
 Local Development
