@@ -104,9 +104,8 @@ At this stage, the website is running locally on your machine.
 
 #### Step 2 — Push Code to GitHub Repository
 
-Create a new repository on:
+Create a new repository.
 
-#### [GitHub](https://github.com/?utm_source=chatgpt.com)
 
 Initialize Git and push the project files.
 
@@ -125,9 +124,7 @@ git push -u origin main
 
 #### Create S3 Bucket
 
-Go to:
-
-#### [AWS S3 Console](https://console.aws.amazon.com/s3/?utm_source=chatgpt.com)
+Go to S3 console:
 
 Create a new bucket.
 
@@ -143,9 +140,7 @@ Keep the remaining settings as default and create the bucket.
 
 #### Create CloudFront Distribution
 
-Go to:
-
-#### [AWS CloudFront Console](https://console.aws.amazon.com/cloudfront/?utm_source=chatgpt.com)
+Go to CloudFront console:
 
 Create a CloudFront distribution.
 
@@ -166,9 +161,8 @@ d2wczi5o3bcz7k.cloudfront.net
 
 #### Create IAM User
 
-Go to:
+Go to IAM user console:
 
-#### [AWS IAM Console](https://console.aws.amazon.com/iam/?utm_source=chatgpt.com)
 
 Create a new IAM user.
 
