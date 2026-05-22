@@ -131,6 +131,15 @@ git remote add origin <your-github-repo-url>
 git push -u origin main
 ```
 
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 7" src="https://github.com/user-attachments/assets/c10fc540-dca6-4b16-b5b0-76c61adad266" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 8" src="https://github.com/user-attachments/assets/85139e89-1965-4d8b-ba12-dbcd191a5642" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 10" src="https://github.com/user-attachments/assets/2d5bc444-d589-4059-9be9-a64697735d26" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 11" src="https://github.com/user-attachments/assets/45b1576b-082f-42ee-84ef-b6fd08d16404" />
+
+
 ---
 
 ## Step 3 — Create S3 Bucket, CloudFront Distribution, and IAM User
