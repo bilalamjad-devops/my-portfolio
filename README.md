@@ -102,7 +102,7 @@ At this stage, the website is running locally on your machine.
 
 ---
 
-# Step 2 — Push Code to GitHub Repository
+## Step 2 — Push Code to GitHub Repository
 
 Create a new repository on:
 
