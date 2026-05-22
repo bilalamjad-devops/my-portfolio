@@ -581,6 +581,15 @@ CloudFront cache invalidation forces CloudFront to fetch the latest files direct
 
 This makes deployments fully automated and ensures users always receive the latest website version.
 
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 77" src="https://github.com/user-attachments/assets/cc334a95-1f41-4642-aadb-81f1d7f6885b" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 83" src="https://github.com/user-attachments/assets/599b5695-5fed-4ff2-a599-8d4f368c3eab" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 84" src="https://github.com/user-attachments/assets/d50fcf02-5315-4864-998c-0060b64873c1" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 85" src="https://github.com/user-attachments/assets/8d7ec5a4-a6dc-4975-b3b1-f82783367c70" />
+
 ---
 
 ## Cost Optimization
