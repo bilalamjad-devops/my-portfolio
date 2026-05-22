@@ -280,6 +280,20 @@ AWS_S3_BUCKET_NAME
 
 These secrets will be used securely inside GitHub Actions.
 
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 41" src="https://github.com/user-attachments/assets/cef2bda4-d6c1-4d61-a9ad-25e7a0f5ebbb" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 42" src="https://github.com/user-attachments/assets/95d02525-d5cf-469c-93f6-f65d8314f6cf" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 43" src="https://github.com/user-attachments/assets/63b7d499-0f72-4955-a3a4-db5148db334d" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 45" src="https://github.com/user-attachments/assets/6c3e16f0-c717-425a-a91c-3321465b73f5" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 48" src="https://github.com/user-attachments/assets/2cd43368-c8c6-460c-83d0-048525d5a74e" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 51" src="https://github.com/user-attachments/assets/f34c103e-6976-4d62-a2e1-47107ddfc9b2" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 52" src="https://github.com/user-attachments/assets/31e0b569-6f4e-4809-8915-ecc049c0a5ac" />
+
 ---
 
 ## Step 5 — Create GitHub Actions Workflow
