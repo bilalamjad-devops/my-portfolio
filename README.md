@@ -21,7 +21,7 @@ As an enhancement, we can later add:
 
 ---
 
-#### Problem Statement
+### Problem Statement
 
 Manually uploading static website files again and again is repetitive and inefficient.
 
@@ -36,7 +36,7 @@ The goal of this project is to automate static website deployment using GitHub A
 
 ---
 
-#### Architecture
+### Architecture
 
 ```text id="c9xstg"
 Developer
@@ -54,7 +54,7 @@ Users
 
 ---
 
-#### What We Will Do
+### What We Will Do
 
 This project will follow these stages:
 
@@ -70,7 +70,7 @@ This project will follow these stages:
 
 ---
 
-#### Step 1 — Local Development
+### Step 1 — Local Development
 
 Create a folder on your laptop and open it in Visual Studio Code.
 
@@ -115,7 +115,7 @@ At this stage, the website is running locally on your machine.
 
 ---
 
-#### Step 2 — Push Code to GitHub Repository
+### Step 2 — Push Code to GitHub Repository
 
 Create a new repository.
 
@@ -144,7 +144,7 @@ git push -u origin main
 
 ## Step 3 — Create S3 Bucket, CloudFront Distribution, and IAM User
 
-#### Create S3 Bucket
+### Create S3 Bucket
 
 Go to S3 console:
 
@@ -170,7 +170,7 @@ Keep the remaining settings as default and create the bucket.
 
 ---
 
-#### Create CloudFront Distribution
+### Create CloudFront Distribution
 
 Go to CloudFront console:
 
@@ -207,7 +207,7 @@ d2wczi5o3bcz7k.cloudfront.net
 
 ---
 
-#### Create IAM User
+### Create IAM User
 
 Go to IAM user console:
 
@@ -373,11 +373,11 @@ Access Denied
 
 ## Troubleshooting — Access Denied Error
 
-#### What is the issue?
+### What is the issue?
 
 CloudFront does not know which file should be served as the default page.
 
-#### Solution
+### Solution
 
 Open your CloudFront distribution.
 
@@ -435,7 +435,7 @@ However, after refreshing the CloudFront URL, you may still see old content.
 
 ## Troubleshooting — Website Changes Are Not Visible
 
-#### What is the issue?
+### What is the issue?
 
 CloudFront stores cached copies of files in edge locations worldwide to deliver content faster.
 
@@ -545,7 +545,7 @@ This makes deployments fully automated and ensures users always receive the late
 
 This project is designed using mostly serverless AWS services, which helps reduce infrastructure cost.
 
-#### Cost-saving decisions
+### Cost-saving decisions
 
 * Used S3 instead of EC2 hosting
 * Used CloudFront for low-cost CDN delivery
