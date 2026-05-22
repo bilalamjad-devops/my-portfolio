@@ -421,6 +421,13 @@ Welcome to my DevOps Portfolio
 This site is deployed automatically using GitHub Actions.
 ```
 
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 61" src="https://github.com/user-attachments/assets/ca559135-fd6e-4b4c-8213-dc582c4683d5" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 62" src="https://github.com/user-attachments/assets/77607e31-490b-41b5-953c-591abed50c7d" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 65" src="https://github.com/user-attachments/assets/b56f1006-32e7-4674-b0e9-63e115784d2c" />
+
+
 ---
 
 ## Step 7 — Test Automatic Deployment
