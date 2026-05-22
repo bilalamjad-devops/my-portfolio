@@ -107,10 +107,11 @@ At this stage, the website is running locally on your machine.
 
 <img width="1600" height="900" alt="githubactions-s3-cloudfront - 3" src="https://github.com/user-attachments/assets/59d3c655-5dc7-4935-a0f9-cc8a5688f1d1" />
 
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 5" src="https://github.com/user-attachments/assets/bf304635-db6b-4ee7-9c9f-fb2167d7a317" />
+
 <img width="1600" height="900" alt="githubactions-s3-cloudfront - 4" src="https://github.com/user-attachments/assets/eb16e15c-bf1f-405b-a41e-cd75be8394aa" />
 
 
-<img width="1600" height="900" alt="githubactions-s3-cloudfront - 5" src="https://github.com/user-attachments/assets/bf304635-db6b-4ee7-9c9f-fb2167d7a317" />
 
 ---
 
