@@ -454,6 +454,21 @@ GitHub Actions pipeline will run successfully.
 
 However, after refreshing the CloudFront URL, you may still see old content.
 
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 66" src="https://github.com/user-attachments/assets/1c39f983-761b-4eaf-88b3-2b1c66302bb7" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 67" src="https://github.com/user-attachments/assets/60f66cd3-a795-432b-966f-fb888ee89a91" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 68" src="https://github.com/user-attachments/assets/3979fd8a-97ea-48ee-b929-fc6518bc2174" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 69" src="https://github.com/user-attachments/assets/dda815a9-626b-4564-bc46-cd3c6e39f87d" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 70" src="https://github.com/user-attachments/assets/150abbd8-4fdd-461a-a7cc-4bee34fb9874" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 72" src="https://github.com/user-attachments/assets/b4b3dfcf-665b-4830-a41b-b449cba77a2b" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 73" src="https://github.com/user-attachments/assets/894617db-34fb-4757-9713-0caef8e6c10f" />
+
 ---
 
 ## Troubleshooting — Website Changes Are Not Visible
