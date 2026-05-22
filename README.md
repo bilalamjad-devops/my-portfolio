@@ -1,5 +1,8 @@
 # Automating Static Website Deployment on AWS using S3, CloudFront, and GitHub Actions
 
+<img width="1983" height="793" alt="75f7ce1d-2de4-455c-b753-fd259e2e858e" src="https://github.com/user-attachments/assets/bf29bee3-6629-405e-8f8c-e11734bc2c20" />
+
+
 Modern deployment workflows focus on automation. Instead of manually uploading website files after every change, we can use CI/CD pipelines to automatically deploy updates whenever code is pushed to GitHub.
 
 In this project, we will build a simple serverless portfolio deployment pipeline using:
