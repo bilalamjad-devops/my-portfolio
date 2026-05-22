@@ -361,7 +361,7 @@ GitHub Actions pipeline will automatically start.
 
 <img width="1600" height="900" alt="githubactions-s3-cloudfront - 57" src="https://github.com/user-attachments/assets/212a03b8-33f3-4b53-ae1c-cc9347c5abbd" />
 
-<img width="1600" height="900" alt="githubactions-s3-cloudfront - 58" src="https://github.com/user-attachments/assets/5f87e73a-006a-4cde-87fb-9b8fa37531be" />
+
 
 ---
 
@@ -380,6 +380,10 @@ You may see:
 ```text id="1pkhfc"
 Access Denied
 ```
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 58" src="https://github.com/user-attachments/assets/5f87e73a-006a-4cde-87fb-9b8fa37531be" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 59" src="https://github.com/user-attachments/assets/469170fd-443f-4839-9dd0-c5509fceacc3" />
 
 ---
 
