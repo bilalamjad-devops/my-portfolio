@@ -1,28 +1,90 @@
+# Automating Static Website Deployment on AWS using S3, CloudFront, and GitHub Actions
 
+Modern deployment workflows focus on automation. Instead of manually uploading website files after every change, we can use CI/CD pipelines to automatically deploy updates whenever code is pushed to GitHub.
 
-**What we want to achieve**
+In this project, we will build a simple serverless portfolio deployment pipeline using:
 
-When developer commits changes, GitHub Actions should be run. It deployes the new code in S3 static website hosting. Cloudfront has to serve the data instantly.
+* AWS S3
+* CloudFront CDN
+* GitHub Actions
 
-Enhancement: We can add Route53 for domain and ACM for https. 
+Whenever a developer pushes new code:
 
-**What we will do**
+* GitHub Actions will automatically run
+* Updated files will be uploaded to S3
+* CloudFront will deliver the latest content globally
 
-First we run our code locally to see. Then we push our code to GitHub. Then we create S3, Cloudfront, IAM User and attach policyes with him. Then write GitHub Actions file. 
-Steps:
-Local Development
-Push to GitHub repository
-Create S3, Cloudfront and IAM user
-Store secrets in GitHub repository
-GitHub Actions file and Testing
-Commit
+As an enhancement, we can later add:
 
-Local Development
+* Route53 for custom domain
+* ACM for HTTPS SSL certificate
 
-Make a folder and open in VS code
-Create index.html and paste code
-Click index browser icon and open it
+---
 
+# Problem Statement
+
+Manually uploading static website files again and again is repetitive and inefficient.
+
+This approach can cause:
+
+* deployment mistakes
+* outdated website content
+* inconsistent deployments
+* extra operational work
+
+The goal of this project is to automate static website deployment using GitHub Actions while using AWS CloudFront CDN for fast content delivery.
+
+---
+
+# Architecture
+
+![Image](https://images.openai.com/static-rsc-4/HQ2WInMafjv30g9ZNzN7Gfzuw9_Z7XEvbcG5Xi1wjH-hct6NypfOZd_iUZhtSZyoBKu1rZuvJagZ4VNadIRHRLZxWyMN0rV9IotVeEuQjZCQgKFfMK51UxROZZkMnGpxqWEZ0o2lSsVGSCIZMkHDXfVi-dSTABl7TgfC93BCC5gk209NzFDaktlGB0Zk1yT2?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/hkpna1ebQZQ9BdGeMuAXnECeHCNHzzAnOXHwPJpT5_E1zCzL1FJQ1lsiJQ3RaBYg9yofboLAX2C_38TmJAwlSU-H_ICZNhCSHLjEx9khMqr1P3aHxeVKF-iE8Wt_GP_EB7TKYk0ajMmCVnA9BneyUt9w7xUDrxeupdoGKL9gql3ZqL5nkh_zKRhgHTuJNbfp?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/aGO0VA9MGTE99db_rdMPowyMhihlbbDX36xSDEyk9NTPFjCogaU9CyyzfgG-31OR2M1v9gh-9LBa_x9nWyIdbEueshhYt6h6WcKZ5dz7CcSit7RdZpV4EBzUTxbFEO2Yz8SABMEpFnbwfrE4T9gH8ixopmtwtUe56XipDqgoVWHrYBG1pgA0MJjuswv0w_hn?purpose=fullsize)
+
+![Image](https://images.openai.com/static-rsc-4/FTe8JYDLfRG1MVcffFY_0yuNDGq7LP4MSSIHBNJ4UhWAc-kyi0duUPI7cpBV6cXkMak50Sei6YS5WNzkhF73Q2oGB4gHk-8XFGnmgNr-xKQB7RVluxjWtRIyXL38A8czM1oJe3awb-4M3iF7mfqu2UF1fZnF1FoqH7C11mtHDt9qumXKldAnuop2sOTxvX2a?purpose=fullsize)
+
+```text id="c9xstg"
+Developer
+   ↓
+Git Push
+   ↓
+GitHub Actions
+   ↓
+AWS S3 Bucket
+   ↓
+CloudFront CDN
+   ↓
+Users
+```
+
+---
+
+# What We Will Do
+
+This project will follow these stages:
+
+1. Run website locally
+2. Push code to GitHub
+3. Create S3 bucket
+4. Configure CloudFront CDN
+5. Create IAM user
+6. Store AWS credentials in GitHub Secrets
+7. Create GitHub Actions workflow
+8. Test automatic deployment
+9. Troubleshoot CloudFront cache issue
+
+---
+
+# Step 1 — Local Development
+
+Create a folder on your laptop and open it in Visual Studio Code.
+
+Create an `index.html` file and paste the following code:
+
+```html id="1l90tp"
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,62 +95,152 @@ Click index browser icon and open it
     <p>This site is deployed automatically using GitHub Actions.</p>
 </body>
 </html>
+```
+
+Now open the HTML file in your browser.
+
+You should see:
+
+```text id="39lt22"
+Welcome to my DevOps Portfolio
+This site is deployed automatically using GitHub Actions.
+```
+
+At this stage, the website is running locally on your machine.
 
 ---
 
-2. Push to GitHub repository
-Create new repository
-git init, add, commit, branch, remote add origin, push
+# Step 2 — Push Code to GitHub Repository
 
+Create a new repository on:
+
+## [GitHub](https://github.com/?utm_source=chatgpt.com)
+
+Initialize Git and push the project files.
+
+```git id="0kq58r"
 git init
 git add .
 git commit -m "First commit: website files"
 git branch -M main
 git remote add origin <your-github-repo-url>
 git push -u origin main
+```
 
 ---
 
-3. Create S3, Cloudfront and IAM user
-S3:
-Create bucket
-Bucket name: my-devops-portfolio-xyz 
-Keep rest options as it is
-Create
+# Step 3 — Create S3 Bucket, CloudFront Distribution, and IAM User
 
-Cloudfront:
-Create a cloudfront distribution
-Distribution name: my-portfolio-cdn
-S3 origin: Your_bucket
-Use monitoring mode
-Keep rest options as it is
-Create
+## Create S3 Bucket
 
-User:
-User name: github-actions-user
-Attach policies: AmazonS3FullAccess, CloudFrontFullAccess
-Securits credentials > Create access key > Command line interface
-Keep rest options as it is
-Please save credentials file
-Create  
+Go to:
+
+## [AWS S3 Console](https://console.aws.amazon.com/s3/?utm_source=chatgpt.com)
+
+Create a new bucket.
+
+Example bucket name:
+
+```text id="a9mzjw"
+my-devops-portfolio-xyz
+```
+
+Keep the remaining settings as default and create the bucket.
 
 ---
 
-4. Store secrets in GitHub repository
-Github repository > Settings
-Secrets and variables > Actions > New repository secret
-AWS_ACCESS_KEY_ID 
+## Create CloudFront Distribution
+
+Go to:
+
+## [AWS CloudFront Console](https://console.aws.amazon.com/cloudfront/?utm_source=chatgpt.com)
+
+Create a CloudFront distribution.
+
+Configure:
+
+* Origin: Your S3 bucket
+* Monitoring: Enable monitoring mode
+
+Keep remaining settings as default and create the distribution.
+
+CloudFront will generate a distribution domain like:
+
+```text id="wy4y7z"
+d2wczi5o3bcz7k.cloudfront.net
+```
+
+---
+
+## Create IAM User
+
+Go to:
+
+## [AWS IAM Console](https://console.aws.amazon.com/iam/?utm_source=chatgpt.com)
+
+Create a new IAM user.
+
+Example username:
+
+```text id="h6mjlwm"
+github-actions-user
+```
+
+Attach the following permissions:
+
+```text id="6l7l2w"
+AmazonS3FullAccess
+CloudFrontFullAccess
+```
+
+Now create:
+
+* Access Key
+* Secret Access Key
+
+Choose:
+
+```text id="4g0kjd"
+Command Line Interface (CLI)
+```
+
+Download and save the credentials file securely.
+
+---
+
+# Step 4 — Store Secrets in GitHub Repository
+
+Open your GitHub repository.
+
+Navigate to:
+
+```text id="4q6vdv"
+Settings → Secrets and variables → Actions
+```
+
+Create the following repository secrets:
+
+```text id="nt6cru"
+AWS_ACCESS_KEY_ID
 AWS_SECRET_ACCESS_KEY
 AWS_S3_BUCKET_NAME
+```
+
+These secrets will be used securely inside GitHub Actions.
 
 ---
 
-5. GitHub Actions file and Testing 
-Make .github/workflows/deploy.yml
-Paste the file content
-git add, commit and push
-Paste your cloudfront distribution domain name
+# Step 5 — Create GitHub Actions Workflow
 
+Create the following file:
+
+```text id="2j3v5q"
+.github/workflows/deploy.yml
+```
+
+Paste the following content:
+
+```yml id="zjg6qv"
 name: Deploy Website to AWS S3 and CloudFront
 
 on:
@@ -101,71 +253,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # 1. Checkout (download) your repository code onto the GitHub runner
+    # Checkout repository code
     - name: Checkout code
       uses: actions/checkout@v4
 
-    # 2. Configure the AWS CLI using your stored GitHub repository secrets
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ap-south-1 # Change this if your S3 bucket is in a different region
-
-    # 3. Automatically sync and upload HTML files from GitHub to the target S3 bucket
-    - name: Deploy to S3
-      run: |
-        aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET_NAME }} --exclude ".git*" --exclude ".github*"
-Please change your aws-region according to you. I should have created secret/variable also for it.
-git add .github/workflows/deploy.yml
-git commit -m "Added deploy.yml content"
-git push origin main
-Troubleshooting:
-Question: What is the issue? 
-Answer: We did not add index.html name which file our cloudfront from has to pull data.
-Edit
-Default root object: index.html
-Save
-
----
-
-6. Commit
-Change content of website
-git add, commit, push 
-Paste/Refresh your cloudfront distribution domain name
-
-Welcome to my DevOps Portfolio
-his site is deployed automatically using GitHub Actions.
-git add index.html
-git commit -m "docs: update website content text for security and pipeline info"
-git push origin main
-Troubleshooting:
-Question: What is the issue?
-Answer: Cloudfront stores data in different edge locations to transfer data instantly. So, we need to remove cache. For removing cache, we have added new line of code to remove cache.
-Github repository > Settings
-Secrets and variables > Actions > New repository secret
-AWS_CLOUDFRONT_DISTRIBUTION_ID: Your Cloudfront distribution ID
-Update/Edit your deploy.yml file 
-git add, commit, push
-Paste/Refresh your cloudfront distrubtion domain name
-
-name: Deploy Website to AWS S3 and CloudFront
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-
-    # Configure AWS credentials and authenticate with the specified region
+    # Configure AWS credentials
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
@@ -173,21 +265,277 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ap-south-1
 
-    # Sync project files directly to the target S3 bucket while excluding repository metadata
+    # Upload files to S3 bucket
+    - name: Deploy to S3
+      run: |
+        aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET_NAME }} --exclude ".git*" --exclude ".github*"
+```
+
+Please change the AWS region according to your environment.
+
+A better approach is to store the region as a GitHub secret or variable instead of hardcoding it.
+
+Now push the workflow file:
+
+```git id="ff0fwp"
+git add .github/workflows/deploy.yml
+git commit -m "Added deploy.yml content"
+git push origin main
+```
+
+GitHub Actions pipeline will automatically start.
+
+---
+
+# Step 6 — Test Website Deployment
+
+Copy your CloudFront distribution domain and paste it into the browser.
+
+Example:
+
+```text id="1b1s1u"
+d2wczi5o3bcz7k.cloudfront.net
+```
+
+You may see:
+
+```text id="1pkhfc"
+Access Denied
+```
+
+---
+
+# Troubleshooting — Access Denied Error
+
+## What is the issue?
+
+CloudFront does not know which file should be served as the default page.
+
+## Solution
+
+Open your CloudFront distribution.
+
+Click:
+
+```text id="b1n4wv"
+Edit
+```
+
+Set:
+
+```text id="a9y2f0"
+Default root object:
+index.html
+```
+
+Save the changes.
+
+Now refresh the CloudFront URL.
+
+You should see:
+
+```text id="9l0jxp"
+Welcome to my DevOps Portfolio
+This site is deployed automatically using GitHub Actions.
+```
+
+---
+
+# Step 7 — Test Automatic Deployment
+
+Now change the website content inside `index.html`.
+
+Example:
+
+```html id="n5u4ye"
+<p>
+This website is hosted securely on AWS S3 + CloudFront and updated automatically via GitHub Actions CI/CD pipeline.
+</p>
+```
+
+Push the changes:
+
+```git id="y26cjo"
+git add index.html
+git commit -m "docs: update website content text for security and pipeline info"
+git push origin main
+```
+
+GitHub Actions pipeline will run successfully.
+
+However, after refreshing the CloudFront URL, you may still see old content.
+
+---
+
+# Troubleshooting — Website Changes Are Not Visible
+
+## What is the issue?
+
+CloudFront stores cached copies of files in edge locations worldwide to deliver content faster.
+
+Because of caching:
+
+* old website content may continue appearing
+* latest S3 updates may not immediately appear
+
+---
+
+# Solution — CloudFront Cache Invalidation
+
+We need to automatically clear CloudFront cache after every deployment.
+
+---
+
+# Step 8 — Add CloudFront Distribution ID Secret
+
+Open your GitHub repository.
+
+Navigate to:
+
+```text id="w86i98"
+Settings → Secrets and variables → Actions
+```
+
+Create a new secret:
+
+```text id="t3z6e7"
+AWS_CLOUDFRONT_DISTRIBUTION_ID
+```
+
+Important:
+
+Paste your CloudFront Distribution ID, not the CDN domain name.
+
+Example:
+
+```text id="6v0o0l"
+E1ABCXYZ12345
+```
+
+---
+
+# Step 9 — Update deploy.yml
+
+Update your workflow file with CloudFront cache invalidation.
+
+```yml id="70m2m4"
+name: Deploy Website to AWS S3 and CloudFront
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    # Configure AWS credentials
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ap-south-1
+
+    # Upload files to S3
     - name: Deploy to S3
       run: |
         aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET_NAME }} --exclude ".git*" --exclude ".github*"
 
-    # Clear the CloudFront edge cache to instantly make updates visible to users
+    # Clear CloudFront cache
     - name: Invalidate CloudFront Cache
       run: |
         aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
-Please paste your aws-region according to you. 
+```
+
+Push the updated workflow:
+
+```git id="32g1e8"
 git add .github/workflows/deploy.yml
 git commit -m "ci: add automated CloudFront cache invalidation step"
 git push origin main
-After lab, please remove resources to avoid cost. 
+```
 
-H
-A
-H
+---
+
+# Final Result
+
+Now refresh the CloudFront URL.
+
+You should immediately see the updated website content.
+
+CloudFront cache invalidation forces CloudFront to fetch the latest files directly from S3.
+
+This makes deployments fully automated and ensures users always receive the latest website version.
+
+---
+
+# Cost Optimization
+
+This project is designed using mostly serverless AWS services, which helps reduce infrastructure cost.
+
+## Cost-saving decisions
+
+* Used S3 instead of EC2 hosting
+* Used CloudFront for low-cost CDN delivery
+* Avoided purchasing custom domain for the lab
+* Used GitHub Actions free tier
+* Deleted resources after testing
+
+---
+
+# Cleanup
+
+To avoid unexpected AWS charges, delete the following resources after completing the lab:
+
+* IAM user
+* Access keys
+* S3 bucket
+* CloudFront distribution
+* GitHub repository secrets
+
+---
+
+# Key Learnings
+
+During this project, I learned:
+
+* how CI/CD pipelines automate deployments
+* how GitHub Actions integrates with AWS
+* how CloudFront caching works
+* why cache invalidation is important
+* how static websites can be hosted using serverless AWS services
+
+---
+
+# Future Enhancements
+
+This project can be improved further by adding:
+
+* Route53 custom domain
+* ACM SSL certificate
+* Terraform Infrastructure as Code
+* Private S3 bucket with Origin Access Control (OAC)
+* Responsive portfolio design
+* Security headers
+
+---
+
+# Conclusion
+
+This project demonstrates how modern cloud-native static websites can be deployed automatically using AWS and GitHub Actions.
+
+Even though the website itself is simple, the concepts used in this project are widely used in real production environments:
+
+* CI/CD
+* CDN
+* deployment automation
+* cloud storage
+* caching
+
+This is an excellent beginner-friendly DevOps and Cloud project to understand modern deployment workflows.
