@@ -240,6 +240,24 @@ Command Line Interface (CLI)
 
 Download and save the credentials file securely.
 
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 31" src="https://github.com/user-attachments/assets/68902c28-5d55-4b93-94d4-53cbb51fe822" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 32" src="https://github.com/user-attachments/assets/8ad57097-363c-4a9d-a4a6-5b30cf657e07" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 33" src="https://github.com/user-attachments/assets/4a1934eb-57db-4260-8ffd-283facd4ee04" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 34" src="https://github.com/user-attachments/assets/28609ab7-f0de-4188-8856-e9367692826b" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 35" src="https://github.com/user-attachments/assets/a88a072b-8bdb-4e8b-87a3-5cb2551c0745" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 36" src="https://github.com/user-attachments/assets/64a0bac6-a2f5-4219-aedf-dc65e92fe65d" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 37" src="https://github.com/user-attachments/assets/fbab6256-283c-4440-8573-5d3e7d1b1543" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 38" src="https://github.com/user-attachments/assets/ebd9325f-149f-4473-9186-247937ebb6b1" />
+
+<img width="1600" height="900" alt="githubactions-s3-cloudfront - 39" src="https://github.com/user-attachments/assets/860ef24c-4c0b-4f10-a0c6-0fb4ff30706f" />
+
 ---
 
 ## Step 4 — Store Secrets in GitHub Repository
